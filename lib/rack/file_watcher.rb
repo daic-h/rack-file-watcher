@@ -16,7 +16,7 @@ module Rack
     def execute_if_updated
       current_updated_at = updated_at
 
-      if @last_update_at < current_updated_at
+      if @last_update_at != current_updated_at
         @block.call
         @last_update_at = current_updated_at
       end
